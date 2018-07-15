@@ -1,14 +1,104 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>SimplyCaptivating</title>
-  <base href="/">
+<!DOCTYPE html>
+<html lang="en">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simply Captivating</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Engagement|Pinyon+Script|Crimson+Text|Sintony|Raleway" rel="stylesheet">
+    <!--Icon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!--Custom Styles-->
+    <link rel="stylesheet" href="assets/styles/header.css" />
+    <link rel="stylesheet" href="assets/styles/body.css" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <link rel="stylesheet" href="assets/styles/footer.css" />
+    <!--Custom Script-->
+    <script src="assets/scripts/main.js"></script>
+    <base href="/">
 </head>
-<body>
-  <app-root>Loading...</app-root>
+
+<body class="content">
+    <header class="container-fluid">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sc-nav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Simply&nbsp;&nbsp;Captivating</a>
+                </div>
+                <!--Collapsible Navbar-->
+                <div class="collapse navbar-collapse" id="sc-nav">
+                    <ul class="nav navbar-nav navbar-right" id="outer-nav-ul">
+                        <li>
+                            <button type="button" class="btn-lg btn-block" id="btn-about" data-toggle="collapse" data-target="#sc-nav" onclick="showSection('section-about')">About Me </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn-lg btn-block" id="btn-shop" data-toggle="collapse" data-target="#sc-nav" onclick="showSection('section-root')">Shop </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn-lg btn-block" id="btn-contact" data-toggle="collapse" data-target="#sc-nav" onclick="">Contact</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container-fluid" id="main">
+        <section class="row" id="section-about">
+            <div class="col-xs-8">
+                <section class="col-xs-12" id="section-about-me">
+                    <h3>Hello,</h3>
+                    <p>
+                        I'm Courtney Melvin and welcome to Simply Captivating. I'm a SeneGence distributor out of Ocala, Florida. Here, I live with
+                        my husband and two (soon three) children in our quaint little suburban home. I'm also a stay-at-home
+                        mom, crafter, counselor, and a former elementary school teacher.
+                    </p>
+                    <p>
+                        My site here which is dedicated to makeup sales was inspired by the book
+                        <a href="https://www.amazon.com/Captivating-Revised-Updated-Unveiling-Mystery/dp/1400200385/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=FB50BDERF719HNS7ZDHF"
+                            target="blank">Captivating</a> by Stasi Eldredge. As a woman I fully appreciate the feminine need to "unveil beauty".
+                        Although the meaning to this is deep and spiritual (not superficial), makeup is fun. And being a
+                        distributor has been a wonderful way to assist my husband from the home.
+                    </p>
+                    <figure>
+                        <img src="assets/images/heart.jpeg" class="img-responsive img-rounded content-image" id="sc-front-image">
+                        <figcaption>LipSense, SeneGense's premiere produce!</figcaption>
+                    </figure>
+                    <p>
+                        SeneGense's top product is Lipsense, a waterproof lipstick. The color options are near endless, particularly because you
+                        can mix shades. You can purchase the lipstick here among other products. Hope you enjoy. Happy shopping,
+                        and I look forward to doing business together.
+                    </p>
+                    </p>
+                </section>
+            </div>
+            <div class="col-xs-4 author-column">
+                <figure>
+                    <img src="assets/images/078.jpg" class="img-responsive img-rounded" id="sc-author">
+                    <figcaption>I'm Courtney. I look forward to helping you</figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="row" id="section-root">
+            <app-root></app-root>
+        </section>        
+    </main>
+    <footer class="container-fluid">
+        <p><span id="footer-span">Site by Travis Melvin&nbsp;&nbsp;|&nbsp;&nbsp;&copy; travismelvin&nbsp;&nbsp;|&nbsp;&nbsp;travro25@gmail.com</span></p>
+    </footer>
 </body>
+
 </html>

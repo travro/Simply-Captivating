@@ -1,0 +1,79 @@
+main.container {
+    width: 100%;
+}
+
+section.row div.col-xs-9 section.col-xs-12 {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 2px solid #999;
+}
+section#about{
+    display:block;
+}
+
+section#section-about-me h2, section#section-about-me h3, section#section-about-me h4 {
+    color: #f40;
+}
+
+section#section-about-me h3, section#section-about-me p {
+    text-indent: 20px;
+}
+
+section#section-about-me p a {
+    color: coral;
+}
+
+
+section#section-root{
+    display: none;
+}
+
+section#section-root, section#section-aboutme{
+    transition: 0.5;
+}
+
+main .img-rounded {
+    box-shadow: 1px 1px 8px 0px #646464;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-img {
+    max-width: 400px;
+    width: 70%;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img#sc-author {
+    width: 80%;
+    height: auto;
+}
+
+img#sc-front-image {
+    width: 50%;
+    max-width: 350px;
+    height: auto;
+}
+
+div.author-column figure figcaption {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 8px;
+    text-align: center;
+}
+
+main figure{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main figure figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    line-height: 3;
+}

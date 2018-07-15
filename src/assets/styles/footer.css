@@ -1,0 +1,26 @@
+footer{
+    /*background: linear-gradient( to bottom, #07616c, #054048);*/
+    background-color: #07616c;
+    min-height: 100px;
+    text-align: center;
+    color: white;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    
+    position: relative;
+    bottom: 0;
+}
+
+footer span#footer-span{
+    line-height: 100px;    
+}
+
+@media (min-width: 768px) {
+    footer.container {
+        width: 100%;
+    }
+
+    footer span#footer-span{
+        font-size: 1.3em;
+        font-weight: 100;    
+    }
+}

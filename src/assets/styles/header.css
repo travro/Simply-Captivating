@@ -1,0 +1,66 @@
+header.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+nav.navbar {
+    color: white;
+    background: linear-gradient(to right, coral, goldenrod);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid coral;
+    border-radius: 0px;
+    margin-bottom: 0;
+}
+
+div.navbar-header {
+    height: 80px;
+    position: relative;
+}
+
+button.navbar-toggle {
+    background-color: coral;
+    border: 1px solid white;
+    position: relative;
+    top: 15px;
+}
+
+span.icon-bar {
+    background-color: white;
+}
+
+a.navbar-brand:link, a.navbar-brand:visited {
+    color: white;
+    font-family: 'Engagement', Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    padding: 0;
+    position: relative;
+    top: 30px;
+    left: 5px;
+}
+
+div#sc-nav {
+    font-size: 1.2em;
+}
+ul#outer-nav-ul li button{
+    background: inherit;
+    border-radius: 0;
+    border: none;
+}
+
+/**/
+
+@media (min-width: 768px) {
+    header.container {
+        width: 100%;
+    }
+    a.navbar-brand:link {
+        font-size: 66px;
+        top: 28px;
+    }
+    #outer-nav-ul {
+        position: relative;
+        top: 32px;
+    }
+}
