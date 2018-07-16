@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
-import { Product } from "../model/product.model";
-import { ProductRepository } from "../model/product.repository";
-import { ProductSortMethods } from "../model/product.sortmethods";
+import { Product } from "../../model/product.model";
+import { ProductRepository } from "../../model/product.repository";
+import { ProductSortMethods } from "../../model/product.sortmethods";
+import { Cart } from "../../model/cart.model";
 
 @Component({
     selector: "store",
@@ -13,14 +14,16 @@ import { ProductSortMethods } from "../model/product.sortmethods";
 export class StoreComponent {
     
     private repository : ProductRepository
+    private cart : Cart
     private selectedCategory: string;
     public productsPerPage: number;
     public selectedPage: number;
     private sortMethod: any;
 
     
-    constructor(repository: ProductRepository) {
+    constructor(repository: ProductRepository, cart: Cart) {
         this.repository = repository;
+        this.cart = cart;
         this.selectedCategory = null;
         this.productsPerPage = 50;
         this.selectedPage = 1;
@@ -72,7 +75,7 @@ export class StoreComponent {
     }
 
     addItemToCart(product: Product) {
-        //this.cart.addLine(item);
+        this.cart.addLine(product);
         //this.router.navigateByUrl("/checkout");
     }
 }
