@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from './store/store/store.module';
+import { CartCheckoutComponent } from './store/cart-checkout/cart-checkout/cart-checkout.component';
+import { CartDetailComponent } from './store/cart-detail/cart-detail/cart-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartCheckoutComponent,
+    CartDetailComponent
   ],
   imports: [
     BrowserModule,
