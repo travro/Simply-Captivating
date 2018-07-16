@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
-import { Cart } from '../../model/cart.model';
+import { NgForm } from '../../../../node_modules/@angular/forms';
+import { Order } from '../../model/order.model';
+import { OrderRepository } from '../../model/order.repository';
 
 @Component({
-  selector: 'app-cart-checkout',
   templateUrl: './cart-checkout.component.html',
   styleUrls: ['./cart-checkout.component.css']
 })
 export class CartCheckoutComponent {
 
-  constructor() { }
+  orderSent: boolean = false;
+  submitted: boolean = false;
 
+  constructor(public orderRepo: OrderRepository, public order: Order) { }
 
+  submitOrder(form: NgForm) {
+    this.submitted = true;
+    if(form.valid) {
+      this.orderRepo.saveOrder(this.order).subscribe( order => {
+        this.order.clear();
+        this.orderSent = true;
+        this.submitted = false;
+      })
+    }    
+  }
 }

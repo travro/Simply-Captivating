@@ -25,7 +25,7 @@ import { StoreFirstGuard } from './store/store-first.guard';
         canActivate: [StoreFirstGuard]
       },
       {
-        path: "chekcout", component: CartCheckoutComponent,
+        path: "checkout", component: CartCheckoutComponent,
         canActivate: [StoreFirstGuard]
       },
       {
