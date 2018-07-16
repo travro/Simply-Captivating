@@ -1,0 +1,49 @@
+.btn-group {
+    position: relative;
+    left: 20%;
+    margin: 30px auto;
+}
+
+.back-button {
+    color: white;
+    background-color: #0b7f8e;
+}
+
+.checkout-button {
+    color: white;
+    background-color: #090;
+}
+
+table {
+    width: 90%;
+    margin: 10px auto;
+}
+
+img {
+    max-height: 180px;
+    max-width: 100%;
+    margin-left: 20px;
+}
+
+.remove-button {
+    float: right;
+}
+
+.item-name {
+    color: #f40;
+}
+
+.adjust-button {
+    color: coral;
+    font-size: 1.2em;
+}
+
+@media (min-width: 768px) {
+    .btn-group {
+        left: 40%;
+    }
+    img {
+        float: right;
+        margin-right: 30px;
+    }
+}

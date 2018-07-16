@@ -3,6 +3,8 @@ import { Product } from "../../model/product.model";
 import { ProductRepository } from "../../model/product.repository";
 import { ProductSortMethods } from "../../model/product.sortmethods";
 import { Cart } from "../../model/cart.model";
+import { Router } from "../../../../node_modules/@angular/router";
+
 
 @Component({
     selector: "store",
@@ -15,15 +17,17 @@ export class StoreComponent {
     
     private repository : ProductRepository
     private cart : Cart
+    private router : Router
     private selectedCategory: string;
     public productsPerPage: number;
     public selectedPage: number;
     private sortMethod: any;
 
     
-    constructor(repository: ProductRepository, cart: Cart) {
+    constructor(repository: ProductRepository, cart: Cart, router: Router ) {
         this.repository = repository;
         this.cart = cart;
+        this.router = router;
         this.selectedCategory = null;
         this.productsPerPage = 50;
         this.selectedPage = 1;

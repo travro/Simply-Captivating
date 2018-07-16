@@ -1,0 +1,58 @@
+<div class="m-a-1">
+  <div class="btn-group text-xs-center">
+    <button class="btn back-button" routerLink="/store">
+      <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Shop</button>
+    <button class="btn checkout-button" routerLink="/checkout" [disabled]="cart.lines.length == 0">Checkout&nbsp;
+      <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+  </div>
+
+  <table class="table table-bordered p-a-1" id="cart-table">
+    <thead></thead>
+    <tbody>
+      <tr *ngFor="let line of cart.lines">
+        <td colspan="2">
+          <div class="row item-row">
+            <div class="col-sm-3">
+              <img class="img-fluid" [src]="line.product.imageURL" />
+            </div>
+            <div class="col-sm-9">
+              <button class="btn btn-sm btn-danger remove-button" (click)="cart.removeLine(line.product.name)">
+                <strong>x</strong>
+              </button>
+              <h3 class="item-name">{{line.product.name}}</h3>
+              <p>{{line.product.description}}</p>
+
+              <button class="btn adjust-button" (click)="line.adjustQuantity(-1); cart.recalculate()">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+              
+              <button class="btn adjust-button" (click)="line.adjustQuantity(1); cart.recalculate()">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+              Amount in Cart: {{line.quantity}} | Subtotal: {{(line.lineTotal) | currency:"USD":true:"1.0-0" }}
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Total Items:</td>
+        <td>{{cart.itemCount}}</td>
+      </tr>
+      <tr>
+        <td>Cart Total:</td>
+        <td>{{cart.cartPrice | currency:"USD":true:"2.2-2"}}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="btn-group text-xs-center">
+    <button class="btn back-button" routerLink="/store">
+      <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back to Shop</button>
+    <button class="btn checkout-button" routerLink="/checkout" [disabled]="cart.lines.length == 0">Checkout&nbsp;
+      <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+  </div>
+</div>
