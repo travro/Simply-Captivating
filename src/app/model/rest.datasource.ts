@@ -12,10 +12,32 @@ const PORT = 3500;
 @Injectable()
 export class RestDataSource {
 
-    baseUrl: string;
+   /* baseUrl: string;*/
+    _url: string;
+
+
     constructor(private http: Http) {
-        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+        /*this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;*/
+        this._url = "products.json";
+        
     }
+
+    getProducts(): Observable<Product[]>{
+        return this.http.get(this._url).map((response) => response.json());
+    }
+
+    saveOrder(order: Order): Observable<Order>{
+        return this.http.request(new Request({
+            method: "post",
+            url: "orders.json",
+            body: order
+        })).map(response => response.json());
+    }
+
+    /**
+     * 
+     * 
+
 
     getProducts(): Observable<Product[]> {
         return this.sendProductRequest(RequestMethod.Get, "products");
@@ -38,5 +60,5 @@ export class RestDataSource {
             url: this.baseUrl + url,
             body: body
         })).map(response => response.json());
-    }
+    }*/
 }
