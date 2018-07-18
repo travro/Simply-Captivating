@@ -29,6 +29,12 @@ import { StoreFirstGuard } from './store/store-first.guard';
         canActivate: [StoreFirstGuard]
       },
       {
+        path: "admin",
+        //When Angular processes the admin module, it will incorporate the routing information it contains into the overall set of routes and complete the navigation
+        loadChildren: "app/admin/admin.module#AdminModule",
+        canActivate: [StoreFirstGuard]
+      },
+      {
         path: "**", redirectTo: "/store"
       }
     ])
