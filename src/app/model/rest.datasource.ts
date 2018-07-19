@@ -13,13 +13,11 @@ const PORT = 3500;
 export class RestDataSource {
 
     baseUrl: string;
-    _url: string;
     auth_token: string;
 
 
     constructor(private http: Http) {
         this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-        this._url = "products.json";
 
     }
 
@@ -34,18 +32,6 @@ export class RestDataSource {
             return r.success;
         })
     }
-    /*Workaround methods
-    getProducts(): Observable<Product[]> {
-        return this.http.get(this._url).map((response) => response.json());
-    }
-
-    saveOrder(order: Order): Observable<Order> {
-        return this.http.request(new Request({
-            method: "post",
-            url: "orders.json",
-            body: order
-        })).map(response => response.json());
-    }*/
 
     getProducts(): Observable<any> {
         return this.sendRequest(RequestMethod.Get, "products");
