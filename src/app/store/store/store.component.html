@@ -1,22 +1,22 @@
 <div class="container-fluid">
-	<div>
-		<button class="btn-block btn-danger" routerLink="/admin">Admin</button>
-	</div>
-	<div class="" id="shop-controls">		
-		<section class="dropdown col-xs-6 col-sm-3" role="group" id="filter-control">
+	<div class="" id="shop-controls">
+		<section class="col-xs-6 col-sm-3">
+			<cart-summary></cart-summary>
+		</section>
+		<section class="dropdown col-xs-6 col-sm-2" role="group" id="filter-control">
 			<button type="button" class="btn-block dropdown-toggle" id="filter-menu" data-toggle="dropdown">
 				<span class="caret"> </span>
-				Filter by: {{categorySelected == null? "None" : categorySelected}}				
+				Filter by: {{categorySelected == null? "None" : categorySelected}}
 			</button>
 			<div class="dropdown-menu" id="filter-menu">
 				<button type="button" class="btn-lg btn-block" (click)="changeCategory()">None</button>
 				<button type="button" class="btn-lg btn-block" *ngFor="let cat of categories" (click)="changeCategory(cat)">{{cat}}</button>
 			</div>
 		</section>
-		<section class="dropdown col-xs-6 col-sm-3" role="group" id="sort-control">
+		<section class="dropdown col-xs-6 col-sm-2" role="group" id="sort-control">
 			<button type="button" class="btn-block dropdown-toggle" id="filter-menu" data-toggle="dropdown">
 				<span class="caret"> </span>
-				Sort by : {{sortedBy}}				
+				Sort by : {{sortedBy}}
 			</button>
 			<div class="dropdown-menu" id="sort-menu">
 				<button type="button" class="btn-lg" (click)="changeSortMethod(0)">Name</button>
@@ -24,10 +24,10 @@
 				<button type="button" class="btn-lg" (click)="changeSortMethod(2)">Price &#9660;</button>
 			</div>
 		</section>
-		<section class="dropdown col-xs-6 col-sm-3" role="group" id="page-control">
+		<section class="dropdown col-xs-6 col-sm-2" role="group" id="page-control">
 			<button type="button" class="btn-block dropdown-toggle" id="filter-menu" data-toggle="dropdown">
 				<span class="caret"> </span>
-				Items per Page: {{productsPerPage}}				
+				Items per Page: {{productsPerPage}}
 			</button>
 			<div class="dropdown-menu" id="page-menu">
 				<button type="button" class="btn-lg" (click)="changePageSize(50)">50</button>
@@ -37,20 +37,15 @@
 				<button type="button" class="btn-lg" (click)="changePageSize(3)">3</button>
 			</div>
 		</section>
-		<section class="col-xs-6 col-sm-3">
-			
-			<cart-summary></cart-summary>
-			
-		</section>		
+		<section class="col-xs-12 col-sm-3">
+			<button class="btn-block" routerLink="/admin">Login</button>
+		</section>
 		<div id="page-buttons" *ngIf="pageCount > 1">
 			<button *counter="let page of pageCount" (click)="changePage(page)" class="btn" [class.active]="page == selectedPage">
 				{{page}}
 			</button>
 		</div>
 	</div>
-
-
-
 
 	<div class="container-fluid product-list">
 		<div class="product-block" *ngFor="let product of products ">

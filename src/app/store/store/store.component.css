@@ -31,6 +31,7 @@ section.dropdown div.dropdown-menu button{
 
 div#page-buttons{
 	margin-top: 20px;
+	margin-left: 10px;
 	background-color:white;
 	display: inline-block;
 	

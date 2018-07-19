@@ -19,7 +19,7 @@ module.exports = function () {
                 category: "Skin",
                 name: "Evening Moisturizer",
                 description: "Rich moisturizer that allows skin the opportunity to repair, re-moisturize, and rejuvenate itself while you sleep",
-                imageURL: "https://lh3.googleusercontent.com/SZGUMs8aJeqe9kaIlr_VPpnMn86UMk_SQuLDyeB0LK3vC7H8zP4EKm1aP73ijJAx9r5CPtzepDYI2mmnQSwlacOMoOdH35eyzf9E5HReYobkc_OAGX6Ssy3912UE1uxvukrYFrdncw=w2400https://lh3.googleusercontent.com/SZGUMs8aJeqe9kaIlr_VPpnMn86UMk_SQuLDyeB0LK3vC7H8zP4EKm1aP73ijJAx9r5CPtzepDYI2mmnQSwlacOMoOdH35eyzf9E5HReYobkc_OAGX6Ssy3912UE1uxvukrYFrdncw=w2400",
+                imageURL: "https://lh3.googleusercontent.com/TXvNEQAaiwM3FotZgUvk_dr5IVBSaD1FDeyTn4vfCAP_AnTRHEXXHGXRlflBonyPwt7_8gtNvKcPAu-wP8Fv4-hTPkTxbNAcslj8yS3fyacKBO4vDydsWeiWUXO-AqJYB7otpFs6_A=w2400",
                 price: 60
             },
             {
@@ -219,7 +219,7 @@ module.exports = function () {
                 price: 50
             },
             {
-                category: "Suncare",
+                category: "SunCare",
                 name: "SeneSun SPF 30 SunScreen",
                 description: "Help protect your skin from the harmful rays of the sun with this light, SPF 30 sunscreen. SeneSun SunScreen is barely noticeable when applied as it does not feel thick, sticky, or oily. Mist on to defend your skin from UV rays while giving it the benefit of advanced anti-aging moisturizers and SenePlex Complex+",
                 imageURL: "https://lh3.googleusercontent.com/MQldHsL0Mg-lbtt9u5TlJX_Jpvpns-xIS7W69g-kOrR6dfxyGn2Dc94kQxyuuI5pAVImYLVMmPdFxIhdVt7KqhT5N8nQ2ecBRk3lio9Exgy23iGAaX2JXX2BDPzUpv0LNtKPrr7iAw=w2400",
