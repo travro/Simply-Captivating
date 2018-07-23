@@ -1,0 +1,11 @@
+table tbody tr:nth-child(even){
+    background-color: #cff7fc
+}
+table tbody tr:nth-child(odd){
+    background-color: white
+}
+
+.list-controls th:hover{
+    background-color: coral;
+}
+
