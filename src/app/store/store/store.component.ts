@@ -31,7 +31,7 @@ export class StoreComponent {
         this.selectedCategory = null;
         this.productsPerPage = 50;
         this.selectedPage = 1;
-        this.sortMethod = ProductSortMethods.byName;
+        this.sortMethod = ProductSortMethods.byNameAsc;
      }
 
     get products(): Product[] {
@@ -65,16 +65,18 @@ export class StoreComponent {
     }
 
     changeSortMethod(value: number) {
-        if (value == 0) this.sortMethod = ProductSortMethods.byName;
-        else if (value == 1) this.sortMethod = ProductSortMethods.byPriceAsc;
-        else if (value == 2) this.sortMethod = ProductSortMethods.byPriceDesc;
-        else this.sortMethod = ProductSortMethods.byName;
+        if (value == 0) this.sortMethod = ProductSortMethods.byNameAsc;
+        else if (value == 1) this.sortMethod = ProductSortMethods.byNameDesc;
+        else if (value == 2) this.sortMethod = ProductSortMethods.byPriceAsc;
+        else if (value == 3) this.sortMethod = ProductSortMethods.byPriceDesc
+        else this.sortMethod = ProductSortMethods.byNameAsc;
     }
 
     get sortedBy(): string {
-        if (this.sortMethod == ProductSortMethods.byName) return "Name";
-        else if (this.sortMethod == ProductSortMethods.byPriceAsc) return "Price Asc";
-        else if (this.sortMethod == ProductSortMethods.byPriceDesc) return "Price Desc";
+        if (this.sortMethod == ProductSortMethods.byNameAsc) return "Name Asc.";
+        else if( this.sortMethod == ProductSortMethods.byNameDesc) return "Name Desc.";
+        else if (this.sortMethod == ProductSortMethods.byPriceAsc) return "Price Asc.";
+        else if (this.sortMethod == ProductSortMethods.byPriceDesc) return "Price Desc.";
         else return "Name";
     }
 
