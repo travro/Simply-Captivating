@@ -42,11 +42,11 @@ export class RestDataSource {
     }
 
     updateProduct(product): Observable<any> {
-        return this.sendRequest(RequestMethod.Put, `products/${product.name}`, product, true);
+        return this.sendRequest(RequestMethod.Put, `products/${product.id}`, product, true);
     }
 
-    deleteProduct(name: string): Observable<any> {
-        return this.sendRequest(RequestMethod.Delete, `products/${name}`, null, true);
+    deleteProduct(id: number): Observable<any> {
+        return this.sendRequest(RequestMethod.Delete, `products/${id}`, null, true);
     }
 
     getOrders(): Observable<any>{

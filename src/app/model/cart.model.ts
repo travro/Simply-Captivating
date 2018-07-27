@@ -10,7 +10,7 @@ export class Cart {
     public cartPrice: number = 0;
 
     addLine(product: Product, quantity: number = 1) {
-        let line = this.lines.find(line => line.product.name == product.name);
+        let line = this.lines.find(line => line.product.id == product.id);
 
         if (line != undefined) {
             line.quantity += quantity;
@@ -22,15 +22,15 @@ export class Cart {
 
     }
     updateQuantity(product : Product, quantity: number) {
-        let line = this.lines.find(line => line.product.name == product.name);
+        let line = this.lines.find(line => line.product.id == product.id);
         if( line != undefined){
             line.quantity = Number(quantity);
         }
         this.recalculate();
     }
 
-    removeLine(name: string) {
-        let index = this.lines.findIndex( line => line.product.name == name);
+    removeLine(id: number) {
+        let index = this.lines.findIndex( line => line.product.id == id);
         this.lines.splice(index, 1);
         this.recalculate();
     }

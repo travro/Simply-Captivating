@@ -26,8 +26,8 @@ export class ProductTableComponent{
         return this.repository.getProducts().sort((x, y) => this.sortMethod(x, y));
     }
 
-    deleteProduct(name: string) {
-        this.repository.deleteProduct(name);
+    deleteProduct(id: number) {
+        this.repository.deleteProduct(id);
     }
 
     set category(cat: string) {

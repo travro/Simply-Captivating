@@ -19,23 +19,23 @@ export class ProductRepository {
         return this.products.filter(p => category == null || category == p.category);
     }
 
-    getProduct(name: string): Product {
-        return this.products.find(p => p.name == name);
+    getProduct(id: number): Product {
+        return this.products.find(p => p.id == id);
     }
 
     saveProduct(product: Product) {
-        if(product.name == null || product.name == "") {
+        if(product.id == null || product.id == 0) {
             this.dataSource.saveProduct(product).subscribe(p => this.products.push(p));
         }else{
             this.dataSource.updateProduct(product).subscribe(p => {
-                this.products.splice(this.products.findIndex(p => p.name == product.name), 1, product);
+                this.products.splice(this.products.findIndex(p => p.id == product.id), 1, product);
             });
         }
     }
 
-    deleteProduct(name: string){
-        this.dataSource.deleteProduct(name).subscribe(p => {
-            this.products.splice(this.products.findIndex(p => p.name == name), 1);
+    deleteProduct(id: number){
+        this.dataSource.deleteProduct(id).subscribe(p => {
+            this.products.splice(this.products.findIndex(p => p.id == id), 1);
         })
     }
 
