@@ -14,10 +14,10 @@
             <td>{{p.price | currency:"USD":true:"2.2-2"}}</td>
             <td>
                 <div class="btn-group" *ngIf="optionsRevealed">
-                    <button class="btn btn-sm btn-warning" [routerLink]="['/admin/main/products/edit', p.name]">
+                    <button class="btn btn-sm btn-warning" [routerLink]="['/admin/main/products/edit', p.id]">
                         Edit
                     </button>
-                    <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.name)">
+                    <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
                         Delete
                     </button>
                 </div>
