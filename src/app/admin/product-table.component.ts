@@ -45,7 +45,7 @@ export class ProductTableComponent{
     }
 
     toggleOptions(){
-        this.optionsRevealed = (this.optionsRevealed == true)? false: true;
+        this.optionsRevealed = !this.optionsRevealed;
     }
 
 }
