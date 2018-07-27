@@ -1,3 +1,19 @@
+<style>
+    form {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+        form {
+            width: 50%;
+        }
+    }
+</style>
+
 <div class="bg-danger m-t-1 p-a-1 text-xs-center" *ngIf="errorMessage != null">
     {{errorMessage}}
 </div>
