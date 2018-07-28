@@ -5,37 +5,35 @@ import { Product } from "./product.model";
 @Injectable()
 
 export class Cart {
-    public lines: CartLine[] = [];
+    public lines: CartLineItem[] = [];
     public productCount: number = 0;
     public cartPrice: number = 0;
 
-    addLine(product: Product, quantity: number = 1) {
+    addLine(product: Product) {
+
         let line = this.lines.find(line => line.product.id == product.id);
 
-        if (line != undefined) {
-            line.quantity += quantity;
+
+        if ((line != undefined && line.quantity >= product.stock) || product.stock == 0) {
+            alert("Sorry, not enough in stock");
+        }
+        else if (line != undefined && line.quantity < product.stock) {
+            line.quantity += 1;
         }
         else {
-            this.lines.push(new CartLine(product, quantity));
-        }
-        this.recalculate();
+            this.lines.push(new CartLineItem(product, 1));
 
-    }
-    updateQuantity(product : Product, quantity: number) {
-        let line = this.lines.find(line => line.product.id == product.id);
-        if( line != undefined){
-            line.quantity = Number(quantity);
         }
         this.recalculate();
     }
 
     removeLine(id: number) {
-        let index = this.lines.findIndex( line => line.product.id == id);
+        let index = this.lines.findIndex(line => line.product.id == id);
         this.lines.splice(index, 1);
         this.recalculate();
     }
 
-    clear(){
+    clear() {
         this.lines = [];
         this.productCount = 0;
         this.cartPrice = 0;
@@ -51,7 +49,7 @@ export class Cart {
     }
 }
 
-export class CartLine {
+export class CartLineItem {
 
     public product: Product;
     public quantity: number;
@@ -61,9 +59,15 @@ export class CartLine {
         this.quantity = quantity;
     }
 
-    adjustQuantity(adjustment : number){   
-        this.quantity += adjustment;
-        if(this.quantity < 0) this.quantity = 0;        
+    adjustQuantity(adjustment: number) {
+        if ((this.quantity + adjustment) > this.product.stock) {
+            alert("Sorry, not enough in stock")
+        } else {
+            this.quantity += adjustment;
+            if (this.quantity < 0) this.quantity = 0;
+        }
+
+
     }
 
     get lineTotal() {
