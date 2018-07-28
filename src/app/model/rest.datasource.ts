@@ -33,6 +33,10 @@ export class RestDataSource {
         })
     }
 
+    /**
+     * Product Operations
+     */
+
     getProducts(): Observable<any> {
         return this.sendRequest(RequestMethod.Get, "products");
     }
@@ -49,15 +53,29 @@ export class RestDataSource {
         return this.sendRequest(RequestMethod.Delete, `products/${id}`, null, true);
     }
 
+
+    /**
+     * Inventory Operations
+     */
+
+
+
+
+    /**
+     * Order Operations
+     */
+
     getOrders(): Observable<any>{
         return this.sendRequest(RequestMethod.Get, "orders", null, true);
     }
 
+    //Called by order.repository
     saveOrder(order: Order): Observable<any> {
         return this.sendRequest(RequestMethod.Post, "orders", order);
     }
 
-    updateOrder(order: Order): Observable<any>{
+    //Called by order.respository
+    updateOrder(order: Order): Observable<any>{        
         return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, order, true);
     }
 
