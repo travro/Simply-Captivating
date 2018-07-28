@@ -1,8 +1,5 @@
 <div class="container-fluid">
 	<div class="" id="shop-controls">
-		<section class="col-xs-6 col-sm-3">
-			<cart-summary></cart-summary>
-		</section>
 		<section class="dropdown col-xs-6 col-sm-2" role="group" id="filter-control">
 			<button type="button" class="btn-block dropdown-toggle" id="filter-menu" data-toggle="dropdown">
 				<span class="caret"> </span>
@@ -38,8 +35,11 @@
 				<button type="button" class="btn-lg" (click)="changePageSize(3)">3</button>
 			</div>
 		</section>
-		<section class="col-xs-12 col-sm-3">
-			<button class="btn-block" routerLink="/admin">Login</button>
+		<section class="col-xs-6 col-sm-3">
+			<cart-summary></cart-summary>
+		</section>
+		<section class="col-xs-12 col-sm-3" >
+			<button class="btn-block" routerLink="/admin" id="login-button">Login</button>
 		</section>
 		<div id="page-buttons" *ngIf="pageCount > 1">
 			<button *counter="let page of pageCount" (click)="changePage(page)" class="btn" [class.active]="page == selectedPage">
