@@ -28,10 +28,12 @@ export class OrderRepository {
     return this.orders;
   }
 
+  //Called by cart-checkout.component upon shipment
   saveOrder(order: Order): Observable<Order> {
     return this.dataSource.saveOrder(order);
   }
 
+  //Called by order-table.component
   updateOrder(order: Order) {
     this.dataSource.updateOrder(order).subscribe(order => {
       this.orders.splice(this.orders.findIndex(o => o.id == order.id), 1, order);
