@@ -23,6 +23,7 @@ export class ProductRepository {
         return this.products.find(p => p.id == id);
     }
 
+    //called by product-editor.component.ts when creating or editing a product
     saveProduct(product: Product) {
         if(product.id == null || product.id == 0) {
             this.dataSource.saveProduct(product).subscribe(p => this.products.push(p));

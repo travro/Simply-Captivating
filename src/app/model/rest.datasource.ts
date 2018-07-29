@@ -57,29 +57,35 @@ export class RestDataSource {
     /**
      * Inventory Operations
      */
-
-
-
+    updateInventory(order: Order) {
+        for (let cartLine of order.cart.lines) {
+            let product = cartLine.product;
+            product.stock -= cartLine.quantity;
+            this.updateProduct(product);
+        }
+    }
 
     /**
      * Order Operations
      */
 
-    getOrders(): Observable<any>{
+    getOrders(): Observable<any> {
         return this.sendRequest(RequestMethod.Get, "orders", null, true);
     }
 
-    //Called by order.repository
+    //Called by order.repository upon finalizing a checkout
     saveOrder(order: Order): Observable<any> {
+        //INVENTORY UPDATE : WHY DOES IT WORK HERE..................
         return this.sendRequest(RequestMethod.Post, "orders", order);
     }
 
-    //Called by order.respository
-    updateOrder(order: Order): Observable<any>{        
+    //Called by order.respository upon shipment
+    updateOrder(order: Order): Observable<any> {
+        ///BUT NOT HERE????
         return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, order, true);
     }
 
-    deleteOrder(id: number): Observable<any>{
+    deleteOrder(id: number): Observable<any> {
         return this.sendRequest(RequestMethod.Delete, `orders/${id}`, null, true);
     }
 
