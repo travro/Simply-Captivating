@@ -15,3 +15,7 @@ table tbody tr:nth-child(odd){
     background-color: coral;
 }
 
+#out-of-stock{
+    color: red;
+}
+
