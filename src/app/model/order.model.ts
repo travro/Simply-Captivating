@@ -5,7 +5,8 @@ import { Cart } from "./cart.model";
 
 export class Order {
     public id: number;
-    public name: string;
+    public firstname: string;
+    public lastname: string;
     public address: string;
     public city: string;
     public state: string;
@@ -17,7 +18,7 @@ export class Order {
     
     clear() {
         this.id = null;
-        this.name = this.address = this.city = null;
+        this.firstname = this.lastname = this.address = this.city = null;
         this.state = this.zip = this.country = null;
         this.shipped = false;
         this.cart.clear();
