@@ -1,7 +1,7 @@
 <div class="form-check">
-<label class="form-check-label">
-    <input type="checkbox" class="form-check-input" [(ngModel)]="includeShipped" /> Display Shipped Orders
-</label>
+    <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="includeShipped" /> Display Shipped Orders
+    </label>
 </div>
 <table class="table table-sm">
     <thead>
@@ -23,7 +23,7 @@
                 <th>Product</th>
                 <th>Quantity</th>
                 <td>
-                    <button class="btn btn-warning" (click)="markShipped(o)">
+                    <button class="btn btn-warning" *ngIf="!o.shipped" (click)="markShipped(o); updateInventory(o)">
                         Ship
                     </button>
                     <button class="btn btn-danger" (click)="delete(o.id)">
