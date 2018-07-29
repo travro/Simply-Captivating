@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { OrderRepository } from "../model/order.repository";
 import { Order } from "../model/order.model";
+import { ProductRepository } from "../model/product.repository";
 
 @Component({
     moduleId: module.id,
@@ -10,18 +11,27 @@ import { Order } from "../model/order.model";
 export class OrderTableComponent {
     includeShipped = false;
 
-    constructor(private repository: OrderRepository) { }
+    constructor(private orderRepo: OrderRepository, private productRepo: ProductRepository) { }
 
     getOrders(): Order[] {
-        return this.repository.getOrders().filter(o => this.includeShipped || !o.shipped);
+        return this.orderRepo.getOrders().filter(o => this.includeShipped || !o.shipped);
     }
 
     markShipped(order: Order) {
         order.shipped = true;
-        this.repository.updateOrder(order);
+        this.orderRepo.updateOrder(order);
     }
 
-    delete(id: number){
-        this.repository.deleteOrder(id);
+    updateInventory(order: Order) {
+        for (let cartLine of order.cart.lines) {
+            let product = cartLine.product;
+            product.stock -= cartLine.quantity;
+            this.productRepo.saveProduct(product);
+        }
+
     }
- }
+
+    delete(id: number) {
+        this.orderRepo.deleteOrder(id);
+    }
+}
