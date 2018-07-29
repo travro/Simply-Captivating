@@ -161,7 +161,7 @@ module.exports = function () {
                 description: "Fragrance conjures powerful reactions and memories. The three Abundance Parfums™ were created with much more in mind – they are also beneficial for your body. These modern, refreshing parfums contain our proprietary SenePlex® Complex. Enjoy a fragrant, lasting impression while improving your skin even more deeply with the combined anti-aging benefits of SenePlex® Complex",
                 imageURL: "https://lh3.googleusercontent.com/R8CnpIP2NeRrPS22OLndzmUwo724HOWO4xRc8C-JL3FBGACwiG2E44Uui_6GzGavzQ5mtpue2n0hobrVANJKd9yB9KmULnGzU1VK5ORcqxnug6z6YQeN2t-EB9JDD0CLczcSvt9uOQ=w2400",
                 price: 70,
-                stock: 0
+                stock: 10
             },
             {
                 id: 19,
