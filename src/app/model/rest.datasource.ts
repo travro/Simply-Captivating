@@ -57,6 +57,8 @@ export class RestDataSource {
     /**
      * Inventory Operations
      */
+
+     //not used; see order-table.component.ts
     updateInventory(order: Order) {
         for (let cartLine of order.cart.lines) {
             let product = cartLine.product;
