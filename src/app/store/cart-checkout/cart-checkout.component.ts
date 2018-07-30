@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '../../../../node_modules/@angular/forms';
 import { Order } from '../../model/order.model';
 import { OrderRepository } from '../../model/order.repository';
+import { Product } from '../../model/product.model';
+import { CartLineItem } from '../../model/cart.model';
 
 @Component({
   templateUrl: './cart-checkout.component.html',
@@ -14,6 +16,15 @@ export class CartCheckoutComponent {
 
   constructor(public orderRepo: OrderRepository, public order: Order) { }
 
+  get checkoutItems(): CartLineItem[] {
+    return this.order.cart.lines;
+  }
+
+  get checkoutTotal(): number{
+    return this.order.cart.cartPrice;
+  }
+  
+  
   submitOrder(form: NgForm) {
     this.submitted = true;
     if(form.valid) {
