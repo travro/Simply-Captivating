@@ -1,3 +1,6 @@
+<button class="btn" routerLink="/admin/main/products/create" id="btn-new-product">
+    New Product +
+</button>
 <table class="table table-sm table-striped">
     <thead>
         <tr class="list-controls">
@@ -5,7 +8,7 @@
             <th (click)="changeSortMethod(2)">Category &#x25B2;&#x25BC;</th>
             <th (click)="changeSortMethod(1)">Price &#x25B2;&#x25BC;</th>
             <th>Stock</th>
-            <th (click)="toggleOptions()">Edit &#43;/&#8722;</th>            
+            <th (click)="toggleOptions()">Options</th>
         </tr>
     </thead>
     <tbody class="product-list">
@@ -13,20 +16,18 @@
             <td>{{p.name}}</td>
             <td>{{p.category}}</td>
             <td>{{p.price | currency:"USD":true:"2.2-2"}}</td>
-            <td>{{(p.stock > 0)? p.stock: out}}<span *ngIf="p.stock == 0" id="out-of-stock"><strong>0</strong></span></td>
+            <td>{{(p.stock > 0)? p.stock: out}}
+                <span *ngIf="p.stock == 0" id="out-of-stock">
+                    <strong>0</strong>
+                </span>
+            </td>
             <td>
-                <div class="btn-group" *ngIf="optionsRevealed">
-                    <button class="btn btn-sm btn-warning" [routerLink]="['/admin/main/products/edit', p.id]">
+                <div class="">
+                    <button class="btn btn-sm" [routerLink]="['/admin/main/products/edit', p.id]">
                         Edit
-                    </button>
-                    <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
-                        Delete
                     </button>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary" routerLink="/admin/main/products/create">
-    Create New Product
-</button>
