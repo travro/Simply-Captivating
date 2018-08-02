@@ -17,7 +17,7 @@
               <img class="img-fluid" [src]="line.product.imageURL" />
             </div>
             <div class="col-sm-9">
-              <button class="btn btn-sm btn-danger remove-button" (click)="cart.removeLine(line.product.name)">
+              <button class="btn btn-sm btn-danger remove-button" (click)="cart.removeLine(line.product.id)">
                 <strong>x</strong>
               </button>
               <h3 class="item-name">{{line.product.name}}</h3>

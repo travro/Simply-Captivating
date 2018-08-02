@@ -13,6 +13,7 @@ export class CartCheckoutComponent {
 
   orderSent: boolean = false;
   submitted: boolean = false;
+  paymentMethod: string = "card";
 
   constructor(public orderRepo: OrderRepository, public order: Order) { }
 
@@ -22,6 +23,10 @@ export class CartCheckoutComponent {
 
   get checkoutTotal(): number{
     return this.order.cart.cartPrice;
+  }
+
+  paymentSelection(method: string){
+    this.paymentMethod = method;
   }
   
   
