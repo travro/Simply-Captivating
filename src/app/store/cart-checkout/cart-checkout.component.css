@@ -4,24 +4,63 @@ input.ng-dirty.ng-valid { border: 2px solid #6bc502 }
 form{
     width: 95%;
     max-width: 600px;
+    min-height: 600px;
     margin: 30px auto;
     padding: 20px 60px 20px;
-    background-color: #8edcf3c0;
+    background-color: #6cbbd3c0;
     border-radius: 4px;
-    box-shadow: 0px 8px 20px -10px gray;
+    box-shadow: 0px 5px 20px -10px gray;
 }
-#form-heading{
+#form-title{
+    font-family: Engagement, Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.form-heading{
     width: 100%;
-    margin: 20px auto 30px;
+    margin: 40px auto 30px;
     padding-bottom: 5px;
     text-align: center;
     font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
     border-bottom: 1px solid white;
 }
-#form-heading, form label{
-    color: #07616c;
-    font-family: 'Crimson Text','Times New Roman', Times, serif;
+#form-heading, #form-title, form label{
+    color: #07616c;    
 }
+form label{
+    font-family: Arial, Helvetica, sans-serif;    
+    font-weight: 200;
+}
+table{
+    width: 90%;
+    margin: 10px auto 30px;    
+}
+table{
+    border: 1px solid black;
+}
+thead, tbody{
+    border-bottom: 1px solid black;
+}
+
+thead th{
+    background-color: whitesmoke;
+}
+tbody td{
+    background-color: white;
+}
+tfoot td{
+    background-color: #ffa280;
+    font-weight: 400;
+}
+th, td{
+    padding:5px; 
+}
+.quantity-header, .quantity-cell{
+    text-align: center;
+}
+.subtotal-header, .subtotal-cell, .total-cell{
+    text-align: right;
+}
+
 form label{
     width: 150px;
 }
@@ -35,8 +74,18 @@ form div.text-xs-center{
 }
 form div.text-xs-center button{
     color: white;
-    background-color: rgb(34, 109, 105);
+    background-color: rgb(55, 116, 112);
     border: 1px solid white;
+}
+form .card-num-block{
+    max-width: 40px;
+}
+
+form .select-month, form .select-year{
+    max-width: 60px;
+}
+form section.form-buttons{
+    clear: right;
 }
 
 @media (min-width: 540px){
@@ -44,6 +93,14 @@ form div.text-xs-center button{
         width: 40%;
         text-align: right;
         padding-right: 10px;
-        font-size: 1.2em;
+        
+    }
+}
+@media (min-width: 1200px){
+    form {
+        width: 98%;
+        max-width: 1200px;
+        height: 800px;
+        padding: 20px 40px 20px;
     }
 }
