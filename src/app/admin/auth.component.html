@@ -1,15 +1,20 @@
 <style>
     form {
-        max-width: 360px;
+        max-width: 768px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
         margin-bottom: 20px;
     }
+    label{
+        width: 80px;
+        text-align: right;
+        font-weight: 200;
+    }
 
     @media (min-width: 768px) {
         form {
-            width: 50%;
+            width: 75%;
         }
     }
 </style>
@@ -19,17 +24,17 @@
 </div>
 <div class="p-a-1">
     <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
-        <div class="form-group">
-            <label>Name</label>
-            <input class="form-control" name="username" [(ngModel)]="username" required />
+        <div class="form-group col-sm-6">
+            <label>Name:</label>
+            <input class="" name="username" [(ngModel)]="username" required />            
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input class="form-control" type="password" name="password" [(ngModel)]="password" required />
+        <div class="form-group col-sm-6">
+            <label>Password:</label>
+                <input class="" type="password" name="password" [(ngModel)]="password" required />
         </div>
         <div class="text-xs-center">
-            <button class="btn btn-secondary" routerLink="/">Go back</button>
-            <button class="btn btn-primary" type="submit">Log In</button>
+            <button class="btn" routerLink="/" id="back-button">Go back</button>
+            <button class="btn" type="submit" id="login-button">Log In</button>
         </div>
     </form>
 </div>
