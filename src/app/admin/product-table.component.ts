@@ -18,17 +18,14 @@ export class ProductTableComponent{
 
     constructor(private repository: ProductRepository) {
         this.selectedCategory = "";
-        this.sortMethod = ProductSortMethods.byNameAsc
-        this.optionsRevealed = false;
+        this.sortMethod = ProductSortMethods.byNameAsc;
      }
 
     getProducts(): Product[] {
         return this.repository.getProducts().sort((x, y) => this.sortMethod(x, y));
     }
 
-    deleteProduct(id: number) {
-        this.repository.deleteProduct(id);
-    }
+
 
     set category(cat: string) {
         this.selectedCategory = cat;
@@ -42,10 +39,6 @@ export class ProductTableComponent{
             case 2: this.sortMethod = (this.sortMethod == ProductSortMethods.byCategoryAsc)? ProductSortMethods.byCategoryDesc: ProductSortMethods.byCategoryAsc; break;
             default: this.sortMethod = ProductSortMethods.byNameAsc;
         }
-    }
-
-    toggleOptions(){
-        this.optionsRevealed = !this.optionsRevealed;
     }
 
 }
