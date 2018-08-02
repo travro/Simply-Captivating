@@ -1,37 +1,80 @@
-<div class="bg-primary p-a-1" [class.bg-warning]="editing">
-    <h5>{{editing ? "Edit" : "Create"}} Product</h5>
-</div>
+<style>
+    form{
+        position: relative;
+    }
+
+    form textarea {
+        min-width: 174px;
+        height: 200px;
+    }
+
+    .btn-create{
+        color: white;
+        background-color: #093;
+    }
+
+    
+
+    #delete-box {
+        margin-top: 2px;
+    }
+
+    .form-controls{
+        margin: 0px;
+        width: 300px;
+        position: relative;
+        right: 0;
+    }
+
+    @media (min-width: 992px) {
+        form textarea {
+            min-width: 400px;
+            height: 100px;
+        }
+    }
+</style>
+
 <form novalidate #form="ngForm" (ngSubmit)="save(form)">
+    <div class="" [class.bg-warning]="editing">
+        <h1 id="form-title">Product {{editing ? "Editor" : "Creator"}}</h1>
+    </div>
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" name="name" [(ngModel)]="product.name" />
+        <input class="" name="name" [(ngModel)]="product.name" />
     </div>
     <div class="form-group">
         <label>Category</label>
-        <input class="form-control" name="category" [(ngModel)]="product.category" />
+        <input class="" name="category" [(ngModel)]="product.category" />
     </div>
     <div class="form-group">
         <label>Description</label>
-        <textarea class="form-control" name="description" [(ngModel)]="product.description">
+        <textarea class="" name="description" [(ngModel)]="product.description">
         </textarea>
     </div>
     <div class="form-group">
         <label>Image URL</label>
-        <textarea class="form-control" name="imageURL" [(ngModel)]="product.imageURL">
+        <textarea class="" name="imageURL" [(ngModel)]="product.imageURL">
             </textarea>
     </div>
     <div class="form-group">
         <label>Price</label>
-        <input class="form-control" name="price" [(ngModel)]="product.price" />
+        <input class="" name="price" [(ngModel)]="product.price" />
     </div>
     <div class="form-group">
         <label>Stock</label>
-        <input type="number" min="0" class="form-control" name="stock" [(ngModel)]="product.stock" />
+        <input type="number" min="0" class="" name="stock" [(ngModel)]="product.stock" />
     </div>
-    <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
-        {{editing ? "Save" : "Create"}}
-    </button>
-    <button type="reset" class="btn btn-secondary" routerLink="/admin/main/products">
-        Cancel
-    </button>
+    <section class="form-controls">
+        <button type="submit" class="btn" [class.btn-create]="!editing" [class.btn-warning]="editing">
+            {{editing ? "Save" : "Create"}}
+        </button>
+        <button type="reset" class="btn btn-secondary" routerLink="/admin/main/products">
+            Cancel
+        </button>
+
+        <section *ngIf="editing" id="delete-box">
+            <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)" routerLink="/admin/main/products">Delete</button>
+        </section>
+    </section>
+
 </form>
