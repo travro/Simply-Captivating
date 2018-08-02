@@ -1,29 +1,29 @@
 <style>
     form{
-        position: relative;
+        width: 98%;
+        background-color: #6cbbd3c0;
+        padding: 5px;
     }
 
     form textarea {
         min-width: 174px;
         height: 200px;
     }
+    label, .custom-input, #stock-input{
+        width: 80px;
+    }
 
     .btn-create{
         color: white;
         background-color: #093;
     }
-
-    
-
     #delete-box {
-        margin-top: 2px;
+        float: right;
     }
 
-    .form-controls{
+    .form-buttons{
         margin: 0px;
         width: 300px;
-        position: relative;
-        right: 0;
     }
 
     @media (min-width: 992px) {
@@ -36,36 +36,36 @@
 
 <form novalidate #form="ngForm" (ngSubmit)="save(form)">
     <div class="" [class.bg-warning]="editing">
-        <h1 id="form-title">Product {{editing ? "Editor" : "Creator"}}</h1>
+        <h3 id="form-title">Product {{editing ? "Editor" : "Creator"}}</h3>
     </div>
     <div class="form-group">
-        <label>Name</label>
-        <input class="" name="name" [(ngModel)]="product.name" />
+        <label>Name:</label>
+        <input class="form-control" name="name" [(ngModel)]="product.name" />
     </div>
     <div class="form-group">
-        <label>Category</label>
-        <input class="" name="category" [(ngModel)]="product.category" />
+        <label>Category:</label>
+        <input class="custom-input" name="category" [(ngModel)]="product.category" />
     </div>
     <div class="form-group">
-        <label>Description</label>
-        <textarea class="" name="description" [(ngModel)]="product.description">
+        <label>Description:</label>
+        <textarea class="form-control" name="description" [(ngModel)]="product.description">
         </textarea>
     </div>
     <div class="form-group">
-        <label>Image URL</label>
-        <textarea class="" name="imageURL" [(ngModel)]="product.imageURL">
+        <label>Image URL:</label>
+        <textarea class="form-control" name="imageURL" rows="3" [(ngModel)]="product.imageURL">
             </textarea>
     </div>
     <div class="form-group">
-        <label>Price</label>
-        <input class="" name="price" [(ngModel)]="product.price" />
+        <label>Price:</label>
+        <input type="number" min="0" class="custom-input" name="price" [(ngModel)]="product.price" />
     </div>
     <div class="form-group">
-        <label>Stock</label>
-        <input type="number" min="0" class="" name="stock" [(ngModel)]="product.stock" />
+        <label>Stock: </label>
+        <input type="number" id="stock-input" min="0" class="" name="stock" [(ngModel)]="product.stock" />
     </div>
-    <section class="form-controls">
-        <button type="submit" class="btn" [class.btn-create]="!editing" [class.btn-warning]="editing">
+    <section class="form-buttons">
+        <button type="submit" class="btn" [class.btn-create]="!editing">
             {{editing ? "Save" : "Create"}}
         </button>
         <button type="reset" class="btn btn-secondary" routerLink="/admin/main/products">
