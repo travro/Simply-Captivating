@@ -7,8 +7,7 @@ import { NgForm } from "@angular/forms";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "./product-editor.component.html",
-    styleUrls: ["../store/cart-checkout/cart-checkout.component.css"]
+    templateUrl: "./product-editor.component.html"
 })
 
 export class ProductEditorComponent {
