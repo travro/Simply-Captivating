@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NgForm } from '../../../../node_modules/@angular/forms';
-import { Order, PaymentType } from '../../model/order.model';
-import { OrderRepository } from '../../model/order.repository';
-import { Product } from '../../model/product.model';
+import { NgForm } from '@angular/forms';
+import { Order } from '../../model/order.model';
 import { CartLineItem } from '../../model/cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './cart-checkout.component.html',
@@ -11,10 +10,10 @@ import { CartLineItem } from '../../model/cart.model';
 })
 export class CartCheckoutComponent {
 
-  orderSent: boolean = false;
+  
   submitted: boolean = false;
 
-  constructor(public orderRepo: OrderRepository, public order: Order) { }
+  constructor(public order: Order, private router: Router) { }
 
   get checkoutItems(): CartLineItem[] {
     return this.order.cart.lines;
@@ -32,11 +31,13 @@ export class CartCheckoutComponent {
   submitOrder(form: NgForm) {
     this.submitted = true;
     if(form.valid) {
-      this.orderRepo.saveOrder(this.order).subscribe( order => {
+      this.router.navigateByUrl("/receipt");
+      /*this.orderRepo.saveOrder(this.order).subscribe( order => {
         this.order.clear();
         this.orderSent = true;
         this.submitted = false;
-      })
-    }    
+      })*/
+    }   
   }
+  
 }

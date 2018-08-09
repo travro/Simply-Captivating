@@ -3,7 +3,7 @@ import { Product } from "../../model/product.model";
 import { ProductRepository } from "../../model/product.repository";
 import { ProductSortMethods } from "../../model/product.sortmethods";
 import { Cart } from "../../model/cart.model";
-import { Router } from "../../../../node_modules/@angular/router";
+import { Router } from "@angular/router";
 
 
 @Component({

@@ -12,20 +12,19 @@ export class Order {
     public state: string;
     public zip: string;
     public country: string;
-    public shipped: boolean = false;
 
     public paymentMethod: PaymentType;
-
     public cardHolder: string;
     public cardNumber: string;
     public cardExp: Date;
-
     public bankAcctName: string;
     public bankAcctRout: string;
     public bankAcctNumber: string;
 
+    public shipped: boolean = false;
+
     constructor(public cart: Cart) { }
-    
+
     clear() {
         this.id = null;
         this.firstname = this.lastname = this.address = this.city = null;
@@ -36,7 +35,7 @@ export class Order {
     }
 }
 
-export enum PaymentType{
+export enum PaymentType {
     card,
     check
 }

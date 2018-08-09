@@ -5,9 +5,9 @@ import { StoreModule } from './store/store/store.module';
 import { StoreComponent } from './store/store/store.component';
 import { CartDetailComponent } from './store/cart-detail/cart-detail.component';
 import { CartCheckoutComponent } from './store/cart-checkout/cart-checkout.component';
-import { RouterModule } from '../../node_modules/@angular/router';
+import { RouterModule } from '@angular/router';
 import { StoreFirstGuard } from './store/store-first.guard';
-import { CartReceiptComponent } from './store/cart-receipt/cart-receipt/cart-receipt.component';
+import { CartReceiptComponent } from './store/cart-receipt/cart-receipt.component';
 
 @NgModule({
   declarations: [
