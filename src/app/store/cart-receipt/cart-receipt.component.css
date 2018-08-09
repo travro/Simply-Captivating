@@ -1,0 +1,26 @@
+body {
+    width: 95%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+}
+
+header, main {
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#logo {
+    font-family: Engagement, Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+}
+
+#billing{
+    margin-left: 15px;
+}

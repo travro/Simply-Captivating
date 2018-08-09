@@ -12,11 +12,7 @@
     label, .custom-input, #stock-input{
         width: 80px;
     }
-
-    .btn-create{
-        color: white;
-        background-color: #093;
-    }
+    
     #delete-box {
         float: right;
     }
@@ -65,7 +61,7 @@
         <input type="number" id="stock-input" min="0" class="" name="stock" [(ngModel)]="product.stock" />
     </div>
     <section class="form-buttons">
-        <button type="submit" class="btn" [class.btn-create]="!editing">
+        <button type="submit" class="btn" [class.btn-confirm]="!editing">
             {{editing ? "Save" : "Create"}}
         </button>
         <button type="reset" class="btn btn-secondary" routerLink="/admin/main/products">

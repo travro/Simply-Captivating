@@ -1,21 +1,29 @@
-<div class="" id="" *ngIf="!orderSent">
-  <div>
-    <p>
-      Order for: {{order.firstname}} {{order.lastname}}
-    </p>
-    <p>
-      Payment type: {{order.paymentMethod}}
-    </p>
-    <p>
-      Payment acct: {{order.cardNumber}}
-    </p>
-    
-  </div>
-  <div>
-    <button class="btn" routerLink="/checkout">Back</button>
-    <button class="btn" (click)="confirmOrder()">Confirm</button>
-  </div>
-</div>
+<body *ngIf="!orderSent">
+  <header>
+    <h3>Thank you for shopping at
+      <span id="logo">Simply Captivating</span>
+    </h3>
+  </header>
+  <main>
+    <section id="billing">
+      <p>
+        Order for:
+      </p>
+      <ul>
+        <li>{{order.firstname}}&nbsp;{{order.lastname}}</li>
+        <li>{{order.address}}</li>
+        <li>{{order.city}},&nbsp;{{order.state}}</li>
+        <li>{{order.zip}}</li>
+      </ul>
+    </section>
+  </main>
+
+
+  <button class="btn" routerLink="/checkout">Back</button>
+  <button class="btn btn-confirm" (click)="confirmOrder()">Confirm</button>
+
+
+</body>
 <div *ngIf="orderSent">
   <h3>Thanks for shopping</h3>
   <button class="btn" routerLink="/store">Back to Store</button>
