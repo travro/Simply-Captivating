@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '../../../../node_modules/@angular/forms';
-import { Order } from '../../model/order.model';
+import { Order, PaymentType } from '../../model/order.model';
 import { OrderRepository } from '../../model/order.repository';
 import { Product } from '../../model/product.model';
 import { CartLineItem } from '../../model/cart.model';
@@ -13,7 +13,6 @@ export class CartCheckoutComponent {
 
   orderSent: boolean = false;
   submitted: boolean = false;
-  paymentMethod: string = "card";
 
   constructor(public orderRepo: OrderRepository, public order: Order) { }
 
@@ -25,8 +24,8 @@ export class CartCheckoutComponent {
     return this.order.cart.cartPrice;
   }
 
-  paymentSelection(method: string){
-    this.paymentMethod = method;
+  paymentSelection(method: number){
+    this.order.paymentMethod = method;
   }
   
   

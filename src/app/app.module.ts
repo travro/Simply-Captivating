@@ -7,10 +7,12 @@ import { CartDetailComponent } from './store/cart-detail/cart-detail.component';
 import { CartCheckoutComponent } from './store/cart-checkout/cart-checkout.component';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { StoreFirstGuard } from './store/store-first.guard';
+import { CartReceiptComponent } from './store/cart-receipt/cart-receipt/cart-receipt.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartReceiptComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,10 @@ import { StoreFirstGuard } from './store/store-first.guard';
       },
       {
         path: "checkout", component: CartCheckoutComponent,
+        canActivate: [StoreFirstGuard]
+      },
+      {
+        path: "receipt", component: CartReceiptComponent,
         canActivate: [StoreFirstGuard]
       },
       {

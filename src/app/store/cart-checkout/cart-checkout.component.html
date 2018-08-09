@@ -50,35 +50,29 @@
   <section class="checkout col-lg-4" id="mailing-info">
     <h3 class="form-heading">Billing Information</h3>
     <div class="form-group">
-      <label>Firstname:</label>
-      <input class="" #name="ngModel" name="firstname" [(ngModel)]="order.firstname" required />
-      <span *ngIf="submitted && name.invalid" class="text-danger">
-        Please enter your name
-      </span>
+      <label>
+        <span *ngIf="submitted && firstname.invalid" class="warning-text">*&nbsp;</span>Firstname:</label>
+      <input class="" #firstname="ngModel" name="firstname" [(ngModel)]="order.firstname" required />
+
     </div>
     <div class="form-group">
-      <label>Lastname:</label>
-      <input class="" #name="ngModel" name="lastname" [(ngModel)]="order.lastname" required />
-      <span *ngIf="submitted && name.invalid" class="text-danger">
-        Please enter your name
-      </span>
+      <label>
+        <span *ngIf="submitted && lastname.invalid" class="warning-text">*&nbsp;</span>Lastname:</label>
+      <input class="" #lastname="ngModel" name="lastname" [(ngModel)]="order.lastname" required />
     </div>
     <div class="form-group">
-      <label>Address:</label>
+      <label>
+        <span *ngIf="submitted && address.invalid" class="warning-text">*&nbsp;</span>Address:</label>
       <input class="" #address="ngModel" name="address" [(ngModel)]="order.address" required />
-      <span *ngIf="submitted && address.invalid" class="text-danger">
-        Please enter your address
-      </span>
     </div>
     <div class="form-group">
-      <label>City:</label>
+      <label>
+        <span *ngIf="submitted && city.invalid" class="warning-text">*&nbsp;</span>City:</label>
       <input class="" #city="ngModel" name="city" [(ngModel)]="order.city" required />
-      <span *ngIf="submitted && city.invalid" class="text-danger">
-        Please enter your city
-      </span>
     </div>
     <div class="form-group">
-      <label>State:</label>
+      <label>
+        <span *ngIf="submitted && state.invalid" class="warning-text">*&nbsp;</span>State:</label>
       <select class="" #state="ngModel" name="state" [(ngModel)]="order.state" required>
         <option value=""></option>
         <option value="AL">Alabama</option>
@@ -133,51 +127,47 @@
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-      <span *ngIf="submitted && state.invalid" class="text-danger">
-        Please enter your state
-      </span>
     </div>
     <div class="form-group">
-      <label>Zip/Postal Code:</label>
+      <label>
+        <span *ngIf="submitted && zip.invalid" class="warning-text">*&nbsp;</span>Zip/Postal Code:</label>
       <input class="" #zip="ngModel" name="zip" [(ngModel)]="order.zip" required />
-      <span *ngIf="submitted && zip.invalid" class="text-danger">
-        Please enter your zip/postal code
-      </span>
     </div>
     <div class="form-group">
-      <label>Country:</label>
+      <label>
+        <span *ngIf="submitted && country.invalid" class="warning-text">*&nbsp;</span>Country:</label>
       <input class="" #country="ngModel" name="country" [(ngModel)]="order.country" required />
-      <span *ngIf="submitted && country.invalid" class="text-danger">
-        Please enter your country
-      </span>
     </div>
   </section>
 
   <section class="checkout col-lg-4" id="payment-info">
     <h3 class="form-heading">Payment Selection</h3>
     <div class="form-group">
-      <label>Payment Method:</label>
-      <select class="" name="pay-method" (change)="paymentSelection($event.target.value)" required>
-        <option value="card" selected>Card</option>
-        <option value="check">Check</option>
+      <label>
+        <span *ngIf="submitted && paymentMethod.invalid" class="warning-text">*&nbsp;</span>Payment Method:</label>
+      <select class="" #paymentMethod="ngModel" name="paymentMethod" [(ngModel)]="order.paymentMethod" (change)="paymentSelection($event.target.value)"
+        required>
+        <option value="-1" selected></option>
+        <option value="0">Card</option>
+        <option value="1">Check</option>
       </select>
     </div>
-    <div id="card-option" *ngIf="paymentMethod == 'card'">
+    <div id="card-option" *ngIf="order.paymentMethod == '0'">
       <div class="form-group">
-        <label>Name on Card:</label>
-        <input class="" name="card-holder" id="card-holder" [required]="paymentMethod == 'card'" />
+        <label>
+          <span *ngIf="submitted && cardHolder.invalid" class="warning-text">*&nbsp;</span>Name on Card:</label>
+        <input class="" #cardHolder="ngModel" name="card-holder" id="card-holder" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
+        />
       </div>
       <div class="form-group">
-        <label>Card number:</label>
-        <input class="card-num-block" id="card-num-block1" [required]="paymentMethod == 'card'">&nbsp;&nbsp;
-        <input class="card-num-block" id="card-num-block2" [required]="paymentMethod == 'card'">&nbsp;&nbsp;
-        <input class="card-num-block" id="card-num-block3" [required]="paymentMethod == 'card'">&nbsp;&nbsp;
-        <input class="card-num-block" id="card-num-block4" [required]="paymentMethod == 'card'">&nbsp;&nbsp;
+        <label>
+          <span *ngIf="submitted && cardNumber.invalid" class="warning-text">*&nbsp;</span>Card number:</label>
+        <input class="" #cardNumber="ngModel" name="card-num-block" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
       </div>
       <div class="form-group">
         <label>Exp. Date:</label>
         <select class="select-month" name="exp-month">
-          <option value="Jan">Jan</option>
+          <option value="Jan" selected>Jan</option>
           <option value="Feb">Feb</option>
           <option value="Mar">Mar</option>
           <option value="Apr">Apr</option>
@@ -191,7 +181,7 @@
           <option value="Dec">Dec</option>
         </select>&nbsp;&nbsp;
         <select class="select-year" name="exp-year">
-          <option value="2018">2018</option>
+          <option value="2018" selected>2018</option>
           <option value="2019">2019</option>
           <option value="2020">2020</option>
           <option value="2021">2021</option>
@@ -202,19 +192,23 @@
         </select>
       </div>
     </div>
-    <div id="check-option" *ngIf="paymentMethod == 'check'">
+    <div id="check-option" *ngIf="order.paymentMethod == '1'">
       <div class="form-group">
-        <label>Name on Account:</label>
-        <input class="" name="act-holder" id="act-holder" [required]="paymentMethod == 'check'">
+        <label>
+          <span *ngIf="submitted && bankAcctName.invalid" class="warning-text">*&nbsp;</span>Name on Account:</label>
+        <input class="" #bankAcctName="ngModel" name="act-holder" id="act-holder" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
+
       </div>
       <div class="form-group">
-        <label>Bank Routing #:</label>
-        <input class="" name="routing-num" id="rout-num" [required]="paymentMethod == 'check'">
+        <label>
+          <span *ngIf="submitted && bankAcctRout.invalid" class="warning-text">*&nbsp;</span>Bank Routing #:</label>
+        <input class="" #bankAcctRout="ngModel" name="routing-num" id="rout-num" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
+
       </div>
       <div class="form-group">
-        <label>Account #:</label>
-        <input class="" name="act-num" id="act-num" [required]="paymentMethod == 'check'">
-      </div>
+        <label>
+          <span *ngIf="submitted && bankAcctNumber.invalid" class="warning-text">*&nbsp;</span>Account #:</label>
+        <input class="" #bankAcctNumber="ngModel" name="act-num" id="act-num" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
     </div>
     <section class="form-buttons">
       <div class="text-xs-center">

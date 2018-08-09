@@ -26,7 +26,7 @@ export class ProductEditorComponent {
     }
 
     deleteProduct(id: number) {
-        this.repository.deleteProduct(id);
+         if(confirm("Are you sure you wish to delete this product?"))this.repository.deleteProduct(id);
     }
 }
 

@@ -77,9 +77,10 @@ form div.text-xs-center button{
     background-color: rgb(55, 116, 112);
     border: 1px solid white;
 }
-form .card-num-block{
-    max-width: 40px;
+.warning-text{
+    color: red;
 }
+
 
 form .select-month, form .select-year{
     max-width: 60px;
