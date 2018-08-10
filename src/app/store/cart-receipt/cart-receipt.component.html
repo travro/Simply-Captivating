@@ -5,17 +5,68 @@
     </h3>
   </header>
   <main>
-    <section id="billing">
-      <p>
-        Order for:
-      </p>
+    <section>
+      <h4>
+        Customer:
+      </h4>
       <ul>
-        <li>{{order.firstname}}&nbsp;{{order.lastname}}</li>
-        <li>{{order.address}}</li>
-        <li>{{order.city}},&nbsp;{{order.state}}</li>
-        <li>{{order.zip}}</li>
+        <li>
+          <span class="receipt-prelim">Name:</span>&nbsp;{{order.firstname}}&nbsp;{{order.lastname}}</li>
+        <li>
+          <span class="receipt-prelim">Address:</span>&nbsp;{{order.address}}</li>
+        <li>
+          <span class="receipt-prelim">City/State:</span>&nbsp;{{order.city}},&nbsp;{{order.state}}</li>
+        <li>
+          <span class="receipt-prelim">Zip Code:</span>&nbsp;{{order.zip}}</li>
+      </ul>
+
+      <ul *ngIf="order.paymentMethod == 0">
+        <li>Payment by Card</li>
+        <li>
+          <span class="receipt-prelim">Name on Card:</span>&nbsp;{{order.cardHolder}}</li>
+        <li>
+          <span class="receipt-prelim">Card Number:</span>&nbsp;{{order.cardNumber}}</li>
+        <li>
+          <span class="receipt-prelim">Card Exp. Date:</span>&nbsp;{{order.cardExp}}</li>
+      </ul>
+
+      <ul *ngIf="order.paymentMethod == 1">
+        <li>Payment by Check</li>
+        <li>
+          <span class="receipt-prelim">Name on Acount:</span>&nbsp;{{order.bankAcctName}}</li>
+        <li>
+          <span class="receipt-prelim">Routing Number:</span>&nbsp;{{order.bankAcctRout}}</li>
+        <li>
+          <span class="receipt-prelim">Acct Number:</span>&nbsp;{{order.bankAcctNumber}}</li>
       </ul>
     </section>
+
+    <section>
+      <h4>
+        Shopping Cart:
+      </h4>
+      <purchase-table></purchase-table>
+    </section>
+
+    <section>
+      <h4>
+        Invoice:
+      </h4>
+      <ul>
+        <li>
+          <span class="receipt-prelim">Invoice Date:</span>&nbsp;{{dateToday}}
+        </li>
+        <li>
+          <span class="receipt-prelim">Cart Total:</span>&nbsp;{{checkoutTotal | currency:'USD':true:'1.2-2'}}</li>
+        <li>
+          <span class="receipt-prelim">Shipping/Processing:</span>&nbsp;{{shippingProcessing | currency:'USD':true:'1.2-2'}}</li>
+        <li>
+          <span class="receipt-prelim">State Sale Tax:</span>&nbsp;{{stateSalesTax | percent:'1.3'}}</li>
+        <li>
+          <span class="receipt-prelim">Total:</span>&nbsp;{{grandTotal | currency:'USD':true:'1.2-2'}}</li>
+      </ul>
+    </section>
+
   </main>
 
 

@@ -14,12 +14,12 @@ export class Order {
     public country: string;
 
     public paymentMethod: PaymentType;
-    public cardHolder: string;
-    public cardNumber: string;
-    public cardExp: Date;
-    public bankAcctName: string;
-    public bankAcctRout: string;
-    public bankAcctNumber: string;
+    public cardHolder?: string;
+    public cardNumber?: string;
+    public cardExp?: Date;
+    public bankAcctName?: string;
+    public bankAcctRout?: string;
+    public bankAcctNumber?: string;
 
     public shipped: boolean = false;
 

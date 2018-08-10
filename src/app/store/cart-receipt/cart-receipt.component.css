@@ -21,6 +21,24 @@ header, main {
     font-size: 1.4em;
 }
 
-#billing{
-    margin-left: 15px;
+main section {
+    margin: 20px auto 40px 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.receipt-prelim {
+    display: inline-block;
+    min-width: 150px;
+    font-weight: bold;
+    color: coral;
+}
+
+@media (min-width: 640px) {
+    .receipt-prelim {
+        min-width: 200px;
+    }
 }

@@ -12,7 +12,6 @@ import { CartReceiptComponent } from './store/cart-receipt/cart-receipt.componen
 @NgModule({
   declarations: [
     AppComponent,
-    CartReceiptComponent
   ],
   imports: [
     BrowserModule,

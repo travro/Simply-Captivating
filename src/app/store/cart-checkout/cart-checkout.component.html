@@ -4,40 +4,7 @@
   </section>
   <section class="checkout col-lg-4" id="cart-info">
     <h3 class="form-heading">Your Cart</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Item
-          </th>
-          <th class="quantity-header">
-            Quanity
-          </th>
-          <th class="subtotal-header">
-            Subtotal
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of checkoutItems">
-          <td>
-            {{item.product.name}}
-          </td>
-          <td class="quantity-cell">
-            {{item.quantity}}
-          </td>
-          <td class="subtotal-cell">
-            {{item.lineTotal | number:'1.2-2'}}
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="2">Total</td>
-          <td class="total-cell">{{checkoutTotal | currency:'USD':true:'1.2-2'}}</td>
-        </tr>
-      </tfoot>
-    </table>
+    <purchase-table></purchase-table>
   </section>
 
   <section class="checkout col-lg-4" id="mailing-info">
@@ -140,7 +107,7 @@
         <span *ngIf="submitted && paymentMethod.invalid" class="warning-text">*&nbsp;</span>Payment Method:</label>
       <select class="" #paymentMethod="ngModel" name="paymentMethod" [(ngModel)]="order.paymentMethod" (change)="paymentSelection($event.target.value)"
         required>
-        <option value="-1" selected></option>
+        <option value="" selected></option>
         <option value="0">Card</option>
         <option value="1">Check</option>
       </select>
@@ -149,13 +116,13 @@
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardHolder.invalid" class="warning-text">*&nbsp;</span>Name on Card:</label>
-        <input class="" #cardHolder="ngModel" name="card-holder" id="card-holder" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
+        <input class="" #cardHolder="ngModel" name="cardHolder" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
         />
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardNumber.invalid" class="warning-text">*&nbsp;</span>Card number:</label>
-        <input class="" #cardNumber="ngModel" name="card-num-block" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
+        <input class="" #cardNumber="ngModel" name="cardNumber" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
       </div>
       <div class="form-group">
         <label>Exp. Date:</label>
@@ -189,25 +156,25 @@
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctName.invalid" class="warning-text">*&nbsp;</span>Name on Account:</label>
-        <input class="" #bankAcctName="ngModel" name="act-holder" id="act-holder" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctName="ngModel" name="bankAcctName" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctRout.invalid" class="warning-text">*&nbsp;</span>Bank Routing #:</label>
-        <input class="" #bankAcctRout="ngModel" name="routing-num" id="rout-num" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctRout="ngModel" name="bankAcctRout" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctNumber.invalid" class="warning-text">*&nbsp;</span>Account #:</label>
-        <input class="" #bankAcctNumber="ngModel" name="act-num" id="act-num" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
+        <input class="" #bankAcctNumber="ngModel" name="bankAcctNumber" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
     </div>
     <section class="form-buttons">
       <div class="text-xs-center">
         <button class="btn" routerLink="/cart">Back</button>
         <button class="btn" type="reset">Reset</button>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" type="submit">Continue</button>
       </div>
     </section>
   </section>

@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th>
+        Item
+      </th>
+      <th class="quantity-header">
+        Quanity
+      </th>
+      <th class="subtotal-header">
+        Subtotal
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of checkoutItems">
+      <td>
+        {{item.product.name}}
+      </td>
+      <td class="quantity-cell">
+        {{item.quantity}}
+      </td>
+      <td class="subtotal-cell">
+        {{item.lineTotal | number:'1.2-2'}}
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Total</td>
+      <td class="total-cell">{{checkoutTotal | currency:'USD':true:'1.2-2'}}</td>
+    </tr>
+  </tfoot>
+</table>
