@@ -26,7 +26,10 @@ export class ProductEditorComponent {
     }
 
     deleteProduct(id: number) {
-         if(confirm("Are you sure you wish to delete this product?"))this.repository.deleteProduct(id);
+         if(confirm("Are you sure you wish to delete this product?")){
+             this.repository.deleteProduct(id);
+             this.router.navigateByUrl("/admin/main/products")
+            }
     }
 }
 

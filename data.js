@@ -219,7 +219,7 @@ module.exports = function () {
             },
             {
                 id: 25,
-                name: "Smoothign Body Scrub",
+                name: "Smoothing Body Scrub",
                 category: "BodyCare",
                 description: "Help make skin on your body beautiful, soft and smooth with this gently but highly effective body exfoliator",
                 imageURL: "https://lh3.googleusercontent.com/ET6i15lDZlPqQoR9gQfWU9hj8-xhvjpeRckPs7yue7_dBazEWdrnP-u9jWEbjK35UqToZL5d63ckQi00Cy7gEXOcFT3YvzRusR0wWZpU1ziaE85OgJhwy4z8ysDUsLhNemSLbP120g=w2400",
