@@ -19,6 +19,7 @@ export class OrderTableComponent {
 
     markShipped(order: Order) {
         order.shipped = true;
+        this.orderRepo.updateOrder(order);order.shipped = true;
         this.orderRepo.updateOrder(order);
     }
 
@@ -32,6 +33,9 @@ export class OrderTableComponent {
     }
 
     delete(id: number) {
-        this.orderRepo.deleteOrder(id);
+
+        if (confirm("Are you sure you wish to delete this order?")) {
+            this.orderRepo.deleteOrder(id);
+        }
     }
 }

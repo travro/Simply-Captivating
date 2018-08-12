@@ -21,11 +21,21 @@ export class CartReceiptComponent {
     })
   }
 
-  get dateToday(): Date {
-    let date = new Date();
-    
-    return date;
+  get acctNumber(): string {   
+    if(this.order.paymentMethod == 0){
+      
+      let endNumber: string = this.order.cardNumber.slice(11,15);      
+      return "XXXX-XXXX-XXXX-" + endNumber;
+    }
+    else if(this.order.paymentMethod == 1){
+      let endNumber: string = this.order.bankAcctNumber.slice(5,9);
+      return "XXXXXX-" + endNumber;
+    }
+    else return "No Account Number Listed";
+  }
 
+  get dateToday(): Date {
+    return new Date();
   }
 
   get checkoutTotal(): number {
@@ -35,6 +45,7 @@ export class CartReceiptComponent {
   get shippingProcessing(): number {
     return this.sP;
   }
+
 
   //this was fun todo (-_-)
   get stateSalesTax(): number {
@@ -52,7 +63,7 @@ export class CartReceiptComponent {
       ["DC", 0.0575],
       ["FL", 0.0680],
       ["GA", 0.0715],
-      ["HI", 0.0435],      
+      ["HI", 0.0435],
       ["ID", 0.0603],
       ["IL", 0.0870],
       ["IA", 0.0680],

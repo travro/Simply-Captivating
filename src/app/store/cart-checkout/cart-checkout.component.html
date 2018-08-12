@@ -12,13 +12,13 @@
     <div class="form-group">
       <label>
         <span *ngIf="submitted && firstname.invalid" class="warning-text">*&nbsp;</span>Firstname:</label>
-      <input class="" #firstname="ngModel" name="firstname" [(ngModel)]="order.firstname" required />
+      <input class="" #firstname="ngModel" name="firstname" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.firstname" required />
 
     </div>
     <div class="form-group">
       <label>
         <span *ngIf="submitted && lastname.invalid" class="warning-text">*&nbsp;</span>Lastname:</label>
-      <input class="" #lastname="ngModel" name="lastname" [(ngModel)]="order.lastname" required />
+      <input class="" #lastname="ngModel" name="lastname" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.lastname" required />
     </div>
     <div class="form-group">
       <label>
@@ -28,7 +28,7 @@
     <div class="form-group">
       <label>
         <span *ngIf="submitted && city.invalid" class="warning-text">*&nbsp;</span>City:</label>
-      <input class="" #city="ngModel" name="city" [(ngModel)]="order.city" required />
+      <input class="" #city="ngModel" name="city" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.city" required />
     </div>
     <div class="form-group">
       <label>
@@ -91,12 +91,12 @@
     <div class="form-group">
       <label>
         <span *ngIf="submitted && zip.invalid" class="warning-text">*&nbsp;</span>Zip/Postal Code:</label>
-      <input class="" #zip="ngModel" name="zip" [(ngModel)]="order.zip" required />
+      <input class="" #zip="ngModel" name="zip" pattern="[0-9]{5,9}" [(ngModel)]="order.zip" required />
     </div>
     <div class="form-group">
       <label>
         <span *ngIf="submitted && country.invalid" class="warning-text">*&nbsp;</span>Country:</label>
-      <input class="" #country="ngModel" name="country" [(ngModel)]="order.country" required />
+      <input class="" #country="ngModel" name="country" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.country" required />
     </div>
   </section>
 
@@ -116,13 +116,13 @@
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardHolder.invalid" class="warning-text">*&nbsp;</span>Name on Card:</label>
-        <input class="" #cardHolder="ngModel" name="cardHolder" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
+        <input class="" #cardHolder="ngModel" name="cardHolder" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
         />
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardNumber.invalid" class="warning-text">*&nbsp;</span>Card number:</label>
-        <input class="" #cardNumber="ngModel" name="cardNumber" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
+        <input class="" #cardNumber="ngModel" name="cardNumber" pattern="[0-9]{16}" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
       </div>
       <div class="form-group">
         <label>Exp. Date:</label>
@@ -156,19 +156,19 @@
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctName.invalid" class="warning-text">*&nbsp;</span>Name on Account:</label>
-        <input class="" #bankAcctName="ngModel" name="bankAcctName" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctName="ngModel" name="bankAcctName" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctRout.invalid" class="warning-text">*&nbsp;</span>Bank Routing #:</label>
-        <input class="" #bankAcctRout="ngModel" name="bankAcctRout" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctRout="ngModel" name="bankAcctRout" pattern="[0-9]{9}" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctNumber.invalid" class="warning-text">*&nbsp;</span>Account #:</label>
-        <input class="" #bankAcctNumber="ngModel" name="bankAcctNumber" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
+        <input class="" #bankAcctNumber="ngModel" name="bankAcctNumber" pattern="[0-9]{10}" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
     </div>
     <section class="form-buttons">
       <div class="text-xs-center">

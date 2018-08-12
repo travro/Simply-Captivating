@@ -23,7 +23,7 @@
                 <th>Product</th>
                 <th>Quantity</th>
                 <td>
-                    <button class="btn btn-warning" *ngIf="!o.shipped" (click)="markShipped(o); updateInventory(o)">
+                    <button class="btn btn-confirm" *ngIf="!o.shipped" (click)="markShipped(o); updateInventory(o)">
                         Ship
                     </button>
                     <button class="btn btn-danger" (click)="delete(o.id)">
