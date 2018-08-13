@@ -1,4 +1,4 @@
-<form *ngIf="!orderSent" #form="ngForm" novalidate (ngSubmit)="submitOrder(form)" class="m-a-1">
+<form #form="ngForm" novalidate (ngSubmit)="submitOrder(form)" class="m-a-1">
   <section class="col-xs-12" id="form-title">
     <h1>Checkout</h1>
   </section>
@@ -112,17 +112,17 @@
         <option value="1">Check</option>
       </select>
     </div>
-    <div id="card-option" *ngIf="order.paymentMethod == '0'">
+    <div id="card-option" *ngIf="order.paymentMethod == 0">
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardHolder.invalid" class="warning-text">*&nbsp;</span>Name on Card:</label>
-        <input class="" #cardHolder="ngModel" name="cardHolder" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == '0'"
+        <input class="" #cardHolder="ngModel" name="cardHolder" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.cardHolder" [required]="order.paymentMethod == 0"
         />
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && cardNumber.invalid" class="warning-text">*&nbsp;</span>Card number:</label>
-        <input class="" #cardNumber="ngModel" name="cardNumber" pattern="[0-9]{16}" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == '0'">
+        <input class="" #cardNumber="ngModel" name="cardNumber" pattern="[0-9]{16}" [(ngModel)]="order.cardNumber" [required]="order.paymentMethod == 0">
       </div>
       <div class="form-group">
         <label>Exp. Date:</label>
@@ -152,23 +152,23 @@
         </select>
       </div>
     </div>
-    <div id="check-option" *ngIf="order.paymentMethod == '1'">
+    <div id="check-option" *ngIf="order.paymentMethod == 1">
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctName.invalid" class="warning-text">*&nbsp;</span>Name on Account:</label>
-        <input class="" #bankAcctName="ngModel" name="bankAcctName" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctName="ngModel" name="bankAcctName" pattern="([A-Za-z]).{1,}" [(ngModel)]="order.bankAcctName" [required]="order.paymentMethod == 1">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctRout.invalid" class="warning-text">*&nbsp;</span>Bank Routing #:</label>
-        <input class="" #bankAcctRout="ngModel" name="bankAcctRout" pattern="[0-9]{9}" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == '1'">
+        <input class="" #bankAcctRout="ngModel" name="bankAcctRout" pattern="[0-9]{9}" [(ngModel)]="order.bankAcctRout" [required]="order.paymentMethod == 1">
 
       </div>
       <div class="form-group">
         <label>
           <span *ngIf="submitted && bankAcctNumber.invalid" class="warning-text">*&nbsp;</span>Account #:</label>
-        <input class="" #bankAcctNumber="ngModel" name="bankAcctNumber" pattern="[0-9]{10}" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == '1'"> </div>
+        <input class="" #bankAcctNumber="ngModel" name="bankAcctNumber" pattern="[0-9]{10}" [(ngModel)]="order.bankAcctNumber" [required]="order.paymentMethod == 1"> </div>
     </div>
     <section class="form-buttons">
       <div class="text-xs-center">
