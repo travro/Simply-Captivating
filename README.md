@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
+Screenshot of storefront:
+![SC](https://github.com/travro/Simply-Captivating/blob/master/src/assets/images/screenshot.png)
+
 # Node Package Manager
 
 Run 'npm install' in the Simply-Captivating folder to acquire the node modules.
